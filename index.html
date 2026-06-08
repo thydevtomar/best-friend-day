@@ -1,0 +1,919 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For Gunnu 💛</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+    background:
+    linear-gradient(
+        180deg,
+        #f8e7d9 0%,
+        #f7d9c8 20%,
+        #d5b6d4 45%,
+        #5f5aa2 70%,
+        #171738 100%
+    );
+    color:white;
+}
+
+p, h1, h2, h3, span{
+    text-shadow:0 2px 12px rgba(0,0,0,0.45);
+}
+
+/* scrollbar */
+::-webkit-scrollbar{
+    width:8px;
+}
+::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,0.3);
+    border-radius:20px;
+}
+
+/* Intro Screen */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#080814;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:0.2;
+        transform:scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:scale(2);
+    }
+}
+
+.intro-content{
+    text-align:center;
+    z-index:2;
+    padding:20px;
+}
+
+.intro-text{
+    font-size:1.2rem;
+    opacity:0.85;
+    margin-bottom:20px;
+}
+
+.loading-bar{
+    width:250px;
+    height:7px;
+    background:rgba(255,255,255,0.1);
+    border-radius:50px;
+    overflow:hidden;
+    margin:auto;
+}
+
+.loading-fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ffd6b3,#ff9ad5);
+    animation:loading 4s forwards;
+}
+
+@keyframes loading{
+    from{width:0;}
+    to{width:100%;}
+}
+
+.open-card{
+    margin-top:35px;
+    padding:16px 28px;
+    border:none;
+    border-radius:18px;
+    cursor:pointer;
+    color:white;
+    font-size:1rem;
+    font-weight:500;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.3s;
+    opacity:0;
+    pointer-events:none;
+}
+
+.open-card:hover{
+    transform:translateY(-4px);
+}
+
+.show-btn{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+}
+
+.glass{
+    background:rgba(20,20,35,0.28);
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-radius:30px;
+    padding:50px;
+    max-width:800px;
+    width:100%;
+    box-shadow:0 15px 50px rgba(0,0,0,0.35);
+}
+
+.hero h1{
+    font-size:clamp(2.5rem,7vw,5rem);
+    margin-bottom:20px;
+    text-shadow:0 4px 20px rgba(0,0,0,0.35);
+}
+
+.gradient-text{
+    background:linear-gradient(to right,#fff,#ffd6f6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:1.15rem;
+    line-height:2;
+    color:#fdfdfd;
+    text-shadow:0 2px 14px rgba(0,0,0,0.5);
+}
+
+.small-tag{
+    color:#fff;
+    text-shadow:0 2px 8px rgba(0,0,0,0.35);
+    margin-top:25px;
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:100px;
+    background:rgba(255,255,255,0.1);
+}
+
+.scroll-down{
+    margin-top:30px;
+    animation:bounce 2s infinite;
+    opacity:0.7;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+/* floating glow */
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    z-index:-1;
+}
+
+.glow1{
+    width:300px;
+    height:300px;
+    background:#ffc0cb55;
+    top:10%;
+    left:5%;
+}
+
+.glow2{
+    width:300px;
+    height:300px;
+    background:#caa8ff55;
+    bottom:10%;
+    right:5%;
+}
+
+/* Music button */
+
+.music-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:100;
+    border:none;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    cursor:pointer;
+    color:white;
+    font-size:1.3rem;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+    .glass{
+        padding:35px 25px;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .intro-text{
+        font-size:1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="mai-tera.mp3" type="audio/mp3">
+</audio>
+
+<!-- Intro Screen -->
+<div id="intro">
+
+    <div class="stars" id="stars"></div>
+
+    <div class="intro-content">
+
+        <div class="intro-text" id="typingText">
+            Some people become special unexpectedly...
+        </div>
+
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+
+        <button class="open-card" id="openBtn">
+            A Small Thing From Kaga ✨
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Floating glows -->
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+
+    <div class="glass">
+
+        <h1 class="gradient-text">
+            Happy Best Friend Day, Gunnu 🌷
+        </h1>
+
+        <p>
+            Officially celebrating one of the most
+            chaotic, funny, annoying (sometimes 😭),
+            and genuinely important people in my life.
+        </p>
+
+        <br>
+
+        <p>
+            Things may feel a little weird sometimes...
+            but some friendships still matter a lot.
+            And ours definitely does.
+        </p>
+
+        <div class="small-tag">
+            — From Kaga 💛
+        </div>
+
+        <div class="scroll-down">
+            ↓ scroll
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Friendship Stats -->
+<section class="stats-section">
+
+    <h2 class="section-title">
+        Certified Friendship Statistics 😭
+    </h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Friendship Level</h3>
+            <p>Legendary ✨</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Arguments Survived</h3>
+            <p>Still counting 😭</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Random Conversations</h3>
+            <p>Infinite ♾</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Annoying Level</h3>
+            <p>Dangerously High 💀</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Memory Gallery -->
+<section class="gallery-section">
+
+    <h2 class="section-title">
+        Tiny Pieces of Chaos 📸
+    </h2>
+
+    <p class="gallery-subtitle">
+        Some memories deserve their own little space.
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="memory-card">
+            <img src="photo1.jpg" alt="">
+            <span>Certified chaos moment 😭</span>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo2.jpg" alt="">
+            <span>Still laughing at this one 💀</span>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo3.jpg" alt="">
+            <span>Main character energy ✨</span>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo4.jpg" alt="">
+            <span>One of my favorite moments 🌷</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Hidden Message -->
+<section class="secret-section">
+
+    <button id="secretBtn" class="secret-button">
+        Do Not Click 👀
+    </button>
+
+    <div class="secret-message" id="secretMessage">
+
+        <h2>A tiny thing I wanted to say 💛</h2>
+
+        <p id="typingMessage"></p>
+
+    </div>
+
+</section>
+
+<style>
+
+/* section spacing */
+
+.stats-section,
+.gallery-section,
+.secret-section{
+    padding:100px 8%;
+}
+
+/* titles */
+
+.section-title{
+    text-align:center;
+    font-size:2.3rem;
+    margin-bottom:50px;
+    color:#fff;
+    text-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+
+.gallery-subtitle{
+    text-align:center;
+    opacity:0.8;
+    margin-bottom:40px;
+}
+
+/* stats */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-card{
+    background:rgba(15,15,30,0.28);
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-card h3{
+    margin-bottom:15px;
+}
+
+.stat-card p{
+    font-size:1.1rem;
+}
+
+/* gallery */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.memory-card{
+    overflow:hidden;
+    border-radius:25px;
+    background:rgba(15,15,30,0.28);
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition:0.4s;
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+.memory-card:hover{
+    transform:translateY(-10px);
+}
+
+.memory-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.memory-card span{
+    display:block;
+    padding:20px;
+    text-align:center;
+}
+
+/* secret */
+
+.secret-section{
+    text-align:center;
+}
+
+.secret-button{
+    padding:18px 30px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    color:white;
+    font-size:1rem;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(18px);
+}
+
+.secret-message{
+    margin-top:40px;
+    max-width:700px;
+    margin-inline:auto;
+    display:none;
+    background:rgba(15,15,30,0.30);
+    padding:35px;
+    border-radius:25px;
+    line-height:2;
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(22px);
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+#typingMessage{
+    white-space:pre-line;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+    .section-title{
+        font-size:1.8rem;
+    }
+
+    .stats-section,
+    .gallery-section,
+    .secret-section{
+        padding:70px 7%;
+    }
+}
+
+</style>
+
+<script>
+
+/* hidden message */
+
+const secretBtn=
+document.getElementById("secretBtn");
+
+const secretMessage=
+document.getElementById("secretMessage");
+
+const typingMessage=
+document.getElementById("typingMessage");
+
+const text=`
+Maybe things have felt a little weird lately...
+
+And maybe I haven't always handled everything perfectly.
+
+But I still wanted to make something for you.
+
+Because no matter what,
+this friendship genuinely means a lot to me.
+
+Thank you for all the dumb moments,
+random conversations,
+and chaos 😭
+
+Happy Best Friend Day, Gunnu 🌷
+
+— Kaga 💛
+`;
+
+secretBtn.addEventListener("click",()=>{
+
+secretMessage.style.display="block";
+
+typingMessage.innerHTML="";
+
+let i=0;
+
+function typeWriter(){
+
+    if(i<text.length){
+
+        typingMessage.innerHTML +=
+        text.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter,30);
+    }
+}
+
+typeWriter();
+
+secretBtn.style.display="none";
+
+});
+
+</script>
+
+<!-- Final Ending -->
+<section class="ending-section">
+
+    <div class="ending-card">
+
+        <h2>
+            Some friendships are just different 🌌
+        </h2>
+
+        <p>
+            Not every person becomes important.
+            Not every friendship feels real.
+        </p>
+
+        <br>
+
+        <p>
+            But somehow,
+            through chaos,
+            random conversations,
+            weird moments,
+            and everything in between...
+
+            you became someone genuinely important.
+        </p>
+
+        <br>
+
+        <p>
+            Even if things feel awkward sometimes,
+            I still wanted to remind you —
+            this friendship matters to me.
+        </p>
+
+        <div class="final-sign">
+            — Kaga 💛
+        </div>
+
+        <button id="confettiBtn"
+        class="celebrate-btn">
+            One Last Click 🌷
+        </button>
+
+    </div>
+
+</section>
+
+<div id="confetti-container"></div>
+
+<style>
+
+/* ending */
+
+.ending-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 8%;
+}
+
+.ending-card{
+    max-width:850px;
+    text-align:center;
+    padding:55px;
+    border-radius:35px;
+    background:rgba(15,15,30,0.30);
+    backdrop-filter:blur(24px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 15px 50px rgba(0,0,0,0.35);
+}
+
+.ending-card h2{
+    font-size:2.6rem;
+    margin-bottom:30px;
+}
+
+.ending-card p{
+    line-height:2;
+    font-size:1.1rem;
+    opacity:0.9;
+}
+
+.final-sign{
+    margin-top:25px;
+    font-size:1.2rem;
+}
+
+.celebrate-btn{
+    margin-top:35px;
+    padding:18px 28px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:1rem;
+    color:white;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(20px);
+    transition:0.3s;
+}
+
+.celebrate-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* confetti */
+
+#confetti-container{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    top:-20px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+    }
+}
+
+@media(max-width:768px){
+
+    .ending-card{
+        padding:35px 25px;
+    }
+
+    .ending-card h2{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+
+<script>
+
+/* confetti */
+
+const confettiBtn=
+document.getElementById("confettiBtn");
+
+const confettiContainer=
+document.getElementById(
+"confetti-container"
+);
+
+confettiBtn.addEventListener(
+"click",()=>{
+
+for(let i=0;i<150;i++){
+
+let confetti=
+document.createElement("div");
+
+confetti.classList.add(
+"confetti"
+);
+
+confetti.style.left=
+Math.random()*100+"vw";
+
+confetti.style.background=
+`hsl(${Math.random()*360},
+90%,70%)`;
+
+confetti.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+confettiContainer
+.appendChild(confetti);
+
+setTimeout(()=>{
+confetti.remove();
+},5000);
+
+}
+
+alert(
+"Happy Best Friend Day, Gunnu 🌷"
+);
+
+});
+
+</script>
+
+
+<button class="music-btn" id="musicBtn">
+    🎵
+</button>
+
+<script>
+
+/* stars */
+
+const starsContainer = document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+    let star=document.createElement("div");
+    star.classList.add("star");
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDelay=
+    Math.random()*5+"s";
+
+    starsContainer.appendChild(star);
+}
+
+/* intro button delay */
+
+setTimeout(()=>{
+    document.getElementById("openBtn")
+    .classList.add("show-btn");
+},4000);
+
+/* open site */
+
+document.getElementById("openBtn")
+.addEventListener("click",()=>{
+
+    /* start music automatically */
+    music.play();
+
+    isPlaying=true;
+    btn.innerHTML="⏸";
+
+    /* fade intro */
+    document.getElementById("intro")
+    .style.opacity="0";
+
+    setTimeout(()=>{
+        document.getElementById("intro")
+        .style.display="none";
+    },1000);
+
+});
+
+/* music */
+
+const music=
+document.getElementById("bgMusic");
+
+const btn=
+document.getElementById("musicBtn");
+
+let isPlaying=false;
+
+btn.addEventListener("click",()=>{
+
+    if(!isPlaying){
+        music.play();
+        btn.innerHTML="⏸";
+    }else{
+        music.pause();
+        btn.innerHTML="🎵";
+    }
+
+    isPlaying=!isPlaying;
+});
+
+</script>
